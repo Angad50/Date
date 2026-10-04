@@ -1,4 +1,4 @@
-name: Update date Data
+name: Update Links Data
 
 on:
   schedule:
@@ -16,12 +16,12 @@ jobs:
 
       - name: Download Data from Google Sheets
         run: |
-          curl -L -o date_data.csv "https://docs.google.com/spreadsheets/d/188qF8eSxS2kymCGUB1N73f8pqxxNJo5vu5udD0lHqHc/export?format=csv"
+          curl -L -o Links_data.csv "https://docs.google.com/spreadsheets/d/13b2eqynihRCuaoyQKeUNct55vwzsg_Xk_JwJ8z3FxAg/export?format=csv"
 
       - name: Save to GitHub
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add date_data.csv
+          git add Links_data.csv
           git diff --quiet && git diff --staged --quiet || (git commit -m "Updated data from Google Sheet" && git push)
           
